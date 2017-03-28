@@ -89,8 +89,8 @@ ENV/
 .ropeproject
 
 # audio files
-.mp3
-.au
-.wav
-.m4a
+*.mp3
+*.au
+*.wav
+*.m4a
 

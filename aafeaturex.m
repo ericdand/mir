@@ -6,10 +6,10 @@ features.tmp.s = mirspectrum(song,'Frame');
 
 % CENTROID
 c = mircentroid(features.tmp.s);
-features.centroid = mirmean(c');
+%features.centroid = mirmean(c);
 % WHY THE SHIT DOESN'T THIS WORK AS EXPECTED
-%stats = mirstat(c);
-%features.centroid = stats.Mean;
+stats = mirstat(c);
+features.centroid = stats.Mean;
 
 % CHORD
 % Number of notes sounding at once, most likely.
