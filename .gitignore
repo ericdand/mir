@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# audio files
+.mp3
+.au
+.wav
+.m4a
+
