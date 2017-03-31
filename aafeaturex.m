@@ -20,14 +20,14 @@ features.centroid = stats.Mean;
 % TIMBRAL WIDTH
 % SPECTRAL DISSONANCE
 % all come from psysound3 loudnessMG analyser
-%fh = readData(song);
-%fh.calCoeff = 1; % "multiplier which is applied to the data as each window is read" -PsySound3 User Manual
-%obj = LoudnessMG(fh); % construct loudness analyser
-%obj = process(obj, fh, []); % analyse
-%features.loudness = obj.output{5};
-%features.timbralwidth = obj.output{8};
-%features.volume = obj.output{9};
-%features.dissonance = obj.output{12};
+fh = readData(song);
+fh.calCoeff = 1; % "multiplier which is applied to the data as each window is read" -PsySound3 User Manual
+obj = LoudnessMG(fh); % construct loudness analyser
+obj = process(obj, fh, []); % analyse
+features.loudness = obj.output{5};
+features.timbralwidth = obj.output{8};
+features.volume = obj.output{9};
+features.dissonance = obj.output{12};
 
 % TONALITY
 % major-minor modality
