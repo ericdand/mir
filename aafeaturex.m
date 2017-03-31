@@ -1,11 +1,11 @@
 function features = aafeaturex(song)
 
-features = mirstruct;
+features = struct;
 
-features.tmp.s = mirspectrum(song,'Frame');
+s = mirspectrum(song,'Frame');
 
 % CENTROID
-c = mircentroid(features.tmp.s);
+c = mircentroid(s);
 %centroid = mirmean(c)
 % WHY THE SHIT DOESN'T THIS WORK AS EXPECTED
 stats = mirstat(c);
@@ -16,7 +16,18 @@ features.centroid = stats.Mean;
 % somehow? emailed Georgeo
 
 % LOUDNESS
-% how??
+% VOLUME
+% TIMBRAL WIDTH
+% SPECTRAL DISSONANCE
+% all come from psysound3 loudnessMG analyser
+%fh = readData(song);
+%fh.calCoeff = 1; % "multiplier which is applied to the data as each window is read" -PsySound3 User Manual
+%obj = LoudnessMG(fh); % construct loudness analyser
+%obj = process(obj, fh, []); % analyse
+%features.loudness = obj.output{5};
+%features.timbralwidth = obj.output{8};
+%features.volume = obj.output{9};
+%features.dissonance = obj.output{12};
 
 % TONALITY
 % major-minor modality
@@ -28,13 +39,3 @@ features.mode = mirgetdata(mirmode(song));
 rms = mirrms(song,'frame');
 bh = mirautocor(rms);
 features.beatsum = sum(mirgetdata(bh));
-
-% SPECTRAL DISSONANCE
-r = mirroughness(features.tmp.s);
-features.dissonance =  mirgetdata(mirmean(r));
-
-% VOLUME
-% http://stackoverflow.com/questions/9018771/how-to-best-determine-volume-of-a-signal
-% http://dsp.stackexchange.com/questions/290/getting-loudness-of-a-track-with-rms
-% RMS
-features.volume = mirgetdata(mirrms(song));
