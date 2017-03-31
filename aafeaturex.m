@@ -7,13 +7,13 @@ s = mirspectrum(song,'Frame');
 % CENTROID
 c = mircentroid(s);
 %centroid = mirmean(c)
-% WHY THE SHIT DOESN'T THIS WORK AS EXPECTED
+%features.centroid = mirmean(c);
+% WHY THE SHIT DOESN'T ^THIS WORK AS EXPECTED
 stats = mirstat(c);
 features.centroid = stats.Mean;
 
 % CHORD
-% who the fuck knows. polyphonic pitch detection reduced to a single value
-% somehow? emailed Georgeo
+% Number of notes sounding at once, most likely.
 
 % LOUDNESS
 % VOLUME
