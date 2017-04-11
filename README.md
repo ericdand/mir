@@ -11,3 +11,14 @@ of the original PsySound3 that we patched so that it would play nice with
 MIRtoolbox, as we needed parts of each to extract certain features. Install the
 libraries from the links provided here. We used MIRtoolbox 1.6.2, the latest at
 the time of this project.
+
+# Scripts
+featurex.m extracts a feature vector from a single wav file in the current directory.
+
+va.m extracts valence and arousal features from a folder of wav files.
+
+plotva.m plots the results from va.m.
+
+To create a valence-arousal plot of a directory of songs:
+[v, a, dn] = va('.'); % or va('/home/user/mirsounds');
+plotva(v, a, dn); % dn are the filenames
