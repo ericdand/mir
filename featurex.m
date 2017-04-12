@@ -33,17 +33,24 @@ features.beatsum = sum(mirgetdata(bh));
 fh = readData(song);
 fh.calCoeff = 1; % "multiplier which is applied to the data as each window is read" -PsySound3 User Manual
 obj = LoudnessMG(fh); % construct loudness analyser
+disp(obj)
 obj = process(obj, fh, []); % analyse
+disp(obj)
 features.loudness = mean(obj.output{5}.Data);
 features.timbralwidth = mean(obj.output{8}.Data);
 features.volume = mean(obj.output{9}.Data);
 features.dissonance = mean(obj.output{12}.Data);
 
+function sig = sigmoid(n) 
+    sig = 1 / (1 + exp(-n));
+end
+
 % AROUSAL
 % arousal = sigmoid(centroid + chord) * loudness / mode
 % Assuming sigmoid is the logistic function logsig(n) = 1 / (1 + exp(-n)
-features.arousal = logsig(features.centroid) * features.loudness / features.mode;
+features.arousal = sigmoid(features.centroid) * features.loudness / features.mode;
 
 % VALENCE
 % valence = beat sum - dissonance / (timbral width + volume)
 features.valence = (features.beatsum - features.dissonance) / (features.timbralwidth + features.volume);
+

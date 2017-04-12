@@ -13,7 +13,7 @@ n = length(dd);
 % Compute valence and arousal for all songs in folder.
 v = zeros(1,n); % valence
 a = zeros(1,n); % arousal
-for i = 1:n;
+for i = 1:n
     f = featurex(dn{i});
     v(i) = f.valence;
     a(i) = f.arousal;
