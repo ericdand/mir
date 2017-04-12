@@ -1,4 +1,4 @@
-function features = aafeaturex(song)
+function features = featurex(song)
 % FEATUREX extracts audio features from a wav
 % using MIRtoolbox and (patched) psysound3
 
