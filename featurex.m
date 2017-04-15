@@ -52,12 +52,6 @@ features.timbralwidth = mean(obj.output{8}.Data);
 features.volume = mean(obj.output{9}.Data);
 features.dissonance = mean(obj.output{12}.Data);
 
-disp(features)
-
-function sig = sigmoid(n) 
-    sig = 1 / (1 + exp(-n));
-end
-
 % AROUSAL
 % arousal = sigmoid(centroid + chord) * loudness / mode
 % Assuming sigmoid is the logistic function logsig(n) = 1 / (1 + exp(-n)
@@ -66,7 +60,8 @@ features.arousal = sigmoid(features.centroid) * features.loudness / features.mod
 % VALENCE
 % valence = beat sum - dissonance / (timbral width + volume)
 features.valence = (features.beatsum - features.dissonance) / (features.timbralwidth + features.volume);
+end
 
-disp(features)
-
+function sig = sigmoid(n) 
+    sig = 1 / (1 + exp(-n));
 end
