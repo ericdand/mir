@@ -14,7 +14,7 @@ After hours wasted trying to patch
 nice with MIRtoolbox (spoiler: they do *not* like each other), we eventually
 just added the necessary components of PsySound3 directly to this project's
 repo. You may still need to install the Signal Processing Toolkit add-on to
-make the PsySound3 code.
+make the PsySound3 code work.
 
 # Scripts
 featurex.m extracts a feature vector from a single wav file in the current directory.
@@ -25,5 +25,5 @@ plotva.m plots the results from va.m.
 
 To create a valence-arousal plot of a directory of songs:
 
-  [v, a, dn] = va('.'); % or va('/home/user/mirsounds');
-  plotva(v, a, dn); % dn are the filenames
+    [v, a, dn] = va('.'); % or va('/home/user/mirsounds');    
+    plotva(v, a, dn); % dn are the filenames
