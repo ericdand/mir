@@ -32,14 +32,6 @@ features.beatsum = sum(mirgetdata(bh));
 fh = readData(song);
 fh.calCoeff = 1; % "multiplier which is applied to the data as each window is read" -PsySound3 User Manual
 
-% CHORD
-% Number of notes sounding at once.
-virtpit = VirtualPitch(fh);
-disp(virtpit)
-virtpit = process(virtpit, fh, []);
-disp(virtpit)
-features.chord = virtpit.Multiplicity;
-
 % LOUDNESS
 % VOLUME
 % TIMBRAL WIDTH
