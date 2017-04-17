@@ -24,12 +24,12 @@ filename = cell(1, nSongset);
 for i=1:nSongset
     name = [songset(i).folder filesep songset(i).name];
     f = featurex(name);
-    % Calculate EMD dist here
+    dist(i) = EarthMoversDistance(fquery, f);
     filename{i} = name;
 end
 end
 
-function emd = EarthMoversDistance()
+function emd = EarthMoversDistance(fquery, f)
 % p_i (cluster)  = {(u_i, sigma_i, w_i),...},  u = mean, sigma = covariance, w = weight
 
 % d_pq (distance) = (sigma_pi/sigma_qj) + (sigma_qj/sigma_pi) + (u_pi - u_qj)^2 * ((1/sigma_pi) + (1/sigma_qj)) 
