@@ -11,11 +11,13 @@ s = mirspectrum(song,'Frame');
 
 % CENTROID
 c = mircentroid(s);
+features.centroidData = c;
 stats = mirstat(c);
 features.centroid = stats.Mean;
 
 % MODE (TONALITY)
 % major-minor modality
+features.modeData = mirmode(song, 'Frame');
 features.mode = mirgetdata(mirmode(song));
 
 % BEAT SUM
@@ -23,6 +25,7 @@ features.mode = mirgetdata(mirmode(song));
 % beat histogram is the autocorrelation of RMS
 rms = mirrms(song,'frame');
 bh = mirautocor(rms);
+features.beatsumData = bh;
 features.beatsum = sum(mirgetdata(bh));
 
 
